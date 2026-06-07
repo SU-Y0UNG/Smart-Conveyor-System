@@ -1,0 +1,200 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 5 0 R /Resources << /Font << /F1 4 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 5043 >>
+stream
+0.137 0.188 0.294 rg
+0 792 595 50 re f
+1 1 1 rg
+BT /F2 18 Tf 50 805 Td (CONVEYOR BELT DAILY OPERATION REPORT) Tj ET
+BT /F1 10 Tf 50 775 Td (Date: 2026-04-28) Tj ET
+BT /F1 10 Tf 400 775 Td (Operator: admin) Tj ET
+0 0 0 RG 0.5 w
+50 760 m 545 760 l S
+0.137 0.188 0.294 rg
+BT /F2 13 Tf 50 735 Td (1. ALERT SUMMARY) Tj ET
+0.2 0.3 0.5 rg
+50 718 300 -22 re f
+1 1 1 rg
+BT /F2 10 Tf 60 706 Td (Category) Tj ET
+BT /F2 10 Tf 260 706 Td (Count) Tj ET
+0.95 0.95 0.95 rg
+50 691 300 -22 re f
+0 0 0 rg
+BT /F1 11 Tf 60 679 Td (Total Alerts) Tj ET
+BT /F2 11 Tf 260 679 Td (10) Tj ET
+1 1 1 rg
+50 664 300 -22 re f
+0.78 0.47 0 rg
+BT /F1 11 Tf 60 652 Td (WARNING) Tj ET
+BT /F2 11 Tf 260 652 Td (6) Tj ET
+0.95 0.95 0.95 rg
+50 637 300 -22 re f
+0.86 0.2 0.2 rg
+BT /F1 11 Tf 60 625 Td (DANGER) Tj ET
+BT /F2 11 Tf 260 625 Td (3) Tj ET
+1 1 1 rg
+50 610 300 -22 re f
+0.78 0 0 rg
+BT /F1 11 Tf 60 598 Td (EMERGENCY STOP) Tj ET
+BT /F2 11 Tf 260 598 Td (1) Tj ET
+0.137 0.188 0.294 rg
+BT /F2 13 Tf 50 560 Td (2. TEMPERATURE / HUMIDITY STATISTICS) Tj ET
+0.2 0.3 0.5 rg
+50 545 450 -22 re f
+1 1 1 rg
+BT /F2 10 Tf 60 533 Td (Metric) Tj ET
+BT /F2 10 Tf 200 533 Td (Min) Tj ET
+BT /F2 10 Tf 290 533 Td (Max) Tj ET
+BT /F2 10 Tf 380 533 Td (Average) Tj ET
+0.95 0.95 0.95 rg
+50 518 450 -22 re f
+0 0 0 rg
+BT /F1 10 Tf 60 506 Td (Temperature) Tj ET
+BT /F1 10 Tf 200 506 Td (28.3 C) Tj ET
+BT /F1 10 Tf 290 506 Td (28.9 C) Tj ET
+BT /F1 10 Tf 380 506 Td (28.7 C) Tj ET
+0.9 0.9 0.92 rg
+50 491 450 -22 re f
+0 0 0 rg
+BT /F1 10 Tf 60 479 Td (Humidity) Tj ET
+BT /F1 10 Tf 200 479 Td (42.0 %) Tj ET
+BT /F1 10 Tf 290 479 Td (71.0 %) Tj ET
+BT /F1 10 Tf 380 479 Td (52.1 %) Tj ET
+0.137 0.188 0.294 rg
+BT /F2 13 Tf 50 425 Td (3. RECENT ALERT HISTORY) Tj ET
+0.2 0.3 0.5 rg
+50 408 495 -22 re f
+1 1 1 rg
+BT /F2 9 Tf 55 397 Td (No.) Tj ET
+BT /F2 9 Tf 100 397 Td (Time) Tj ET
+BT /F2 9 Tf 190 397 Td (Status) Tj ET
+BT /F2 9 Tf 260 397 Td (Temp) Tj ET
+BT /F2 9 Tf 320 397 Td (Humi) Tj ET
+BT /F2 9 Tf 380 397 Td (Description) Tj ET
+0.78 0 0 rg
+BT /F1 9 Tf 55 369 Td (1) Tj ET
+BT /F1 9 Tf 100 369 Td (11:55:50) Tj ET
+BT /F2 9 Tf 190 369 Td (STOP) Tj ET
+BT /F1 9 Tf 260 369 Td (0.0) Tj ET
+BT /F1 9 Tf 320 369 Td (0.0) Tj ET
+0 0 0 rg
+BT /F1 8 Tf 380 369 Td (Emergency stop button pressed) Tj ET
+0.95 0.95 0.97 rg
+50 361 495 -19 re f
+0.6 0.35 0 rg
+BT /F1 9 Tf 55 351 Td (2) Tj ET
+BT /F1 9 Tf 100 351 Td (11:55:30) Tj ET
+BT /F2 9 Tf 190 351 Td (WARNING) Tj ET
+BT /F1 9 Tf 260 351 Td (28.5) Tj ET
+BT /F1 9 Tf 320 351 Td (42.0) Tj ET
+0 0 0 rg
+BT /F1 8 Tf 380 351 Td (Humi 42.0% warning \(limit: 40%...) Tj ET
+0.6 0.35 0 rg
+BT /F1 9 Tf 55 333 Td (3) Tj ET
+BT /F1 9 Tf 100 333 Td (11:55:22) Tj ET
+BT /F2 9 Tf 190 333 Td (WARNING) Tj ET
+BT /F1 9 Tf 260 333 Td (28.5) Tj ET
+BT /F1 9 Tf 320 333 Td (42.0) Tj ET
+0 0 0 rg
+BT /F1 8 Tf 380 333 Td (Humi 42.0% warning \(limit: 40%...) Tj ET
+0.95 0.95 0.97 rg
+50 325 495 -19 re f
+0.6 0.35 0 rg
+BT /F1 9 Tf 55 315 Td (4) Tj ET
+BT /F1 9 Tf 100 315 Td (11:55:20) Tj ET
+BT /F2 9 Tf 190 315 Td (WARNING) Tj ET
+BT /F1 9 Tf 260 315 Td (28.3) Tj ET
+BT /F1 9 Tf 320 315 Td (43.0) Tj ET
+0 0 0 rg
+BT /F1 8 Tf 380 315 Td (Humi 43.0% warning \(limit: 40%...) Tj ET
+0.6 0.35 0 rg
+BT /F1 9 Tf 55 297 Td (5) Tj ET
+BT /F1 9 Tf 100 297 Td (11:55:20) Tj ET
+BT /F2 9 Tf 190 297 Td (WARNING) Tj ET
+BT /F1 9 Tf 260 297 Td (28.7) Tj ET
+BT /F1 9 Tf 320 297 Td (47.0) Tj ET
+0 0 0 rg
+BT /F1 8 Tf 380 297 Td (Humi 47.0% warning \(limit: 40%...) Tj ET
+0.95 0.95 0.97 rg
+50 289 495 -19 re f
+0.86 0.2 0.2 rg
+BT /F1 9 Tf 55 279 Td (6) Tj ET
+BT /F1 9 Tf 100 279 Td (11:55:16) Tj ET
+BT /F2 9 Tf 190 279 Td (DANGER) Tj ET
+BT /F1 9 Tf 260 279 Td (28.8) Tj ET
+BT /F1 9 Tf 320 279 Td (68.0) Tj ET
+0 0 0 rg
+BT /F1 8 Tf 380 279 Td (Humi 68.0% exceeded \(limit: 50...) Tj ET
+0.86 0.2 0.2 rg
+BT /F1 9 Tf 55 261 Td (7) Tj ET
+BT /F1 9 Tf 100 261 Td (11:55:14) Tj ET
+BT /F2 9 Tf 190 261 Td (DANGER) Tj ET
+BT /F1 9 Tf 260 261 Td (28.9) Tj ET
+BT /F1 9 Tf 320 261 Td (71.0) Tj ET
+0 0 0 rg
+BT /F1 8 Tf 380 261 Td (Humi 71.0% exceeded \(limit: 50...) Tj ET
+0.95 0.95 0.97 rg
+50 253 495 -19 re f
+0.86 0.2 0.2 rg
+BT /F1 9 Tf 55 243 Td (8) Tj ET
+BT /F1 9 Tf 100 243 Td (11:55:12) Tj ET
+BT /F2 9 Tf 190 243 Td (DANGER) Tj ET
+BT /F1 9 Tf 260 243 Td (28.7) Tj ET
+BT /F1 9 Tf 320 243 Td (70.0) Tj ET
+0 0 0 rg
+BT /F1 8 Tf 380 243 Td (Humi 70.0% exceeded \(limit: 50...) Tj ET
+0.6 0.35 0 rg
+BT /F1 9 Tf 55 225 Td (9) Tj ET
+BT /F1 9 Tf 100 225 Td (11:55:11) Tj ET
+BT /F2 9 Tf 190 225 Td (WARNING) Tj ET
+BT /F1 9 Tf 260 225 Td (28.8) Tj ET
+BT /F1 9 Tf 320 225 Td (43.0) Tj ET
+0 0 0 rg
+BT /F1 8 Tf 380 225 Td (Humi 43.0% warning \(limit: 40%...) Tj ET
+0.95 0.95 0.97 rg
+50 217 495 -19 re f
+0.6 0.35 0 rg
+BT /F1 9 Tf 55 207 Td (10) Tj ET
+BT /F1 9 Tf 100 207 Td (11:55:05) Tj ET
+BT /F2 9 Tf 190 207 Td (WARNING) Tj ET
+BT /F1 9 Tf 260 207 Td (28.8) Tj ET
+BT /F1 9 Tf 320 207 Td (43.0) Tj ET
+0 0 0 rg
+BT /F1 8 Tf 380 207 Td (Humi 43.0% warning \(limit: 40%...) Tj ET
+0.5 0.5 0.5 rg
+0.5 0.5 0.5 RG 0.3 w
+50 38 m 545 38 l S
+BT /F1 8 Tf 50 26 Td (Generated: 2026-04-28 12:15:45) Tj ET
+BT /F1 8 Tf 380 26 Td (Conveyor Belt Monitoring System) Tj ET
+
+endstream
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000348 00000 n 
+0000005443 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+5545
+%%EOF

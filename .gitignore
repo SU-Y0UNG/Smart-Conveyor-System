@@ -1,0 +1,38 @@
+# Visual Studio
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.suo
+*.user
+*.pdb
+*.obj
+*.log
+*.tlog
+*.ilk
+*.exe
+*.dll
+.vs/
+Debug/
+Release/
+x64/
+x86/
+ipch/
+
+# C# WinForm
+*.Designer.cs
+*.resx
+bin/
+obj/
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# SQLite
+*.db
+
+# Reports output
+Reports/

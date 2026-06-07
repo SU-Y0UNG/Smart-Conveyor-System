@@ -1,0 +1,167 @@
+// ================================================================
+// INTEGRATION_GUIDE.cpp
+// ================================================================
+// VoiceAlert + ReportGenerator 기존 코드 통합 가이드
+//
+// 새 파일 4개를 프로젝트에 추가하고, 기존 파일 3곳을 수정합니다.
+// ================================================================
+
+
+// ================================================================
+// [STEP 1] 프로젝트에 새 파일 추가
+// ================================================================
+// Visual Studio > Solution Explorer > 우클릭 > Add > Existing Item:
+//   - VoiceAlert.h
+//   - VoiceAlert.cpp
+//   - ReportGenerator.h
+//   - ReportGenerator.cpp
+
+
+// ================================================================
+// [STEP 2] Conveyor_SystemDlg.h 수정
+// ================================================================
+
+// ── 2-1. 헤더 include 추가 (기존 #include "SettingsDlg.h" 아래) ──
+
+#include "VoiceAlert.h"
+#include "ReportGenerator.h"
+
+
+// ── 2-2. 멤버 변수 추가 (private 섹션, AppSettings m_appSettings; 아래) ──
+
+    CVoiceAlert         m_voiceAlert;
+    CReportGenerator    m_reportGen;
+
+
+// ── 2-3. 메서드 선언 추가 (private 섹션, UpdateMonitorFrame(); 아래) ──
+
+    void GenerateDailyReport();
+
+
+// ================================================================
+// [STEP 3] Conveyor_SystemDlg.cpp 수정
+// ================================================================
+
+// ── 3-1. OnInitDialog() — return TRUE; 직전에 추가 ──
+
+    // ★ 음성 알림 초기화
+    if (m_voiceAlert.Initialize())
+        AddLog(_T("[Voice] TTS Initialized"));
+    else
+        AddLog(_T("[Voice] TTS Init Failed"));
+
+    m_voiceAlert.SetCooldownSec(10);
+
+    // ★ PDF 리포트 생성기 초기화
+    m_reportGen.SetDBManager(&m_dbManager);
+    m_reportGen.SetOperatorName(m_strLoggedInUser);
+    m_reportGen.SetOutputFolder(_T(".\\Reports"));
+
+
+// ── 3-2. OnDestroy() — CDialogEx::OnDestroy(); 직전에 추가 ──
+
+    m_voiceAlert.Shutdown();
+
+
+// ── 3-3. ProcessStatusPacket() 수정 ──
+//
+// ★ DANGER 블록 (507행 부근):
+//   기존:  m_dbManager.InsertAlert(m_fTemp, m_fHumi, "DANGER", buf);
+//   추가:  그 바로 아래에 한 줄 추가
+//
+        m_voiceAlert.SpeakDanger(m_fTemp, m_fHumi);
+//
+// ★ WARNING 블록 (518행 부근):
+//   기존:  m_dbManager.InsertAlert(m_fTemp, m_fHumi, "WARNING", buf);
+//   추가:  그 바로 아래에 한 줄 추가
+//
+        m_voiceAlert.SpeakWarning(m_fTemp, m_fHumi);
+
+
+// ── 3-4. OnBtnEmergencyStop() 수정 ──
+//   기존:  m_dbManager.InsertAlert(0, 0, "STOP", "Emergency stop button pressed");
+//   추가:  그 바로 아래에 한 줄 추가
+//
+    m_voiceAlert.SpeakEmergency();
+
+
+// ── 3-5. OnTcpReceived() — EMERGENCY:STOP 블록 수정 ──
+//   기존:  m_dbManager.InsertAlert(0, 0, "STOP", "Emergency stop from Flask web");
+//   추가:  그 바로 아래에 한 줄 추가
+//
+        m_voiceAlert.SpeakEmergency();
+
+
+// ── 3-6. GenerateDailyReport() 함수 추가 (OnBtnSettings() 아래) ──
+
+void CConveyorSystemDlg::GenerateDailyReport()
+{
+    m_reportGen.SetOperatorName(m_strLoggedInUser);
+
+    CString filePath = m_reportGen.GenerateDailyReport();
+
+    if (filePath.IsEmpty())
+    {
+        CString err;
+        err.Format(_T("Report failed: %s"),
+            (LPCTSTR)m_reportGen.GetLastError());
+        AddLog(err);
+        MessageBox(err, _T("Report Error"), MB_OK | MB_ICONERROR);
+    }
+    else
+    {
+        CString msg;
+        msg.Format(_T("[Report] Saved: %s"), (LPCTSTR)filePath);
+        AddLog(msg);
+
+        MessageBox(filePath, _T("Report Generated"), MB_OK | MB_ICONINFORMATION);
+
+        // 생성된 PDF 자동 열기
+        ShellExecute(NULL, _T("open"), filePath, NULL, NULL, SW_SHOWNORMAL);
+    }
+}
+
+
+// ── 3-7. OnBtnLogout() 수정 — 로그아웃 시 자동 리포트 생성 ──
+// 기존 OnBtnLogout() 전체를 아래로 교체:
+
+void CConveyorSystemDlg::OnBtnLogout()
+{
+    if (MessageBox(_T("Confirm logout?\nDaily report will be generated."),
+        _T("Logout"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+    {
+        GenerateDailyReport();
+        AddLog(_T("[System] User logged out"));
+        EndDialog(ID_LOGOUT_RESULT);
+    }
+}
+
+
+// ================================================================
+// [STEP 4] Conveyor_System.cpp — COM 초기화 확인
+// ================================================================
+// InitInstance()에서 AfxOleInit() 호출이 있는지 확인.
+// 없으면 InitInstance() 상단에 추가:
+//
+//   if (!AfxOleInit())
+//   {
+//       AfxMessageBox(_T("OLE Init Failed"));
+//       return FALSE;
+//   }
+
+
+// ================================================================
+// 완성! 빌드 후 테스트
+// ================================================================
+//
+// [음성 알림 테스트]
+// □ DANGER 초과 → "위험! 온도가 XX도를 초과했습니다" 음성
+// □ WARNING 초과 → "경고. 온도가 XX도에 도달했습니다" 음성
+// □ 비상정지 버튼 → "비상정지! 컨베이어 벨트가 긴급 정지" 음성
+// □ 10초 내 같은 알림 반복 안 됨
+// □ UI 블로킹 없음 (비동기 재생)
+//
+// [PDF 리포트 테스트]
+// □ 로그아웃 시 Reports\DailyReport_YYYYMMDD.pdf 자동 생성
+// □ PDF 내용: 알림 요약, 온습도 통계, 알림 이력 테이블
+// □ 생성 후 자동으로 PDF 뷰어에서 열림
